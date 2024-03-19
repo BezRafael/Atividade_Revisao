@@ -85,6 +85,7 @@ constructor(
     this.membros = membros
     this.lider = lider
     }
+//criando o método para mostrar os dados da Equipe
 dadosEquipe(){
     console.log('------Dados da Equipe------')
     console.log(`ID da Equipe: ${this.id_equipe}`)
@@ -121,12 +122,19 @@ constructor(
     this.data_fim = data_fim
     this.status = status
     }
+//criando o método para mostrar os dados do projeto
 dadosProjeto(){
     console.log('------Dados do Projeto------')
-    console.log('') //Parei aqui!!, terminar em casa a partir daqui
+    console.log(`ID do Projeto: ${this.id_projeto}`)
+    console.log(`ID da Equipe: ${this.id_equipe}`)
+    console.log(`Nome do Projeto: ${this.nome_projeto}`)
+    console.log(`Descrição: ${this.descricao}`)
+    console.log(`Data de Início: ${this.data_inicio.toLocaleDateString('pt-BR')}`)
+    console.log(`Data de Finalização: ${this.data_fim.toLocaleDateString('pt-BR')}`)
+    console.log(`Status do Projeto: ${this.status}`)
+    console.log('------------')
     }
 }
-
 
 class Tarefas{
     protected id_tarefa: string
@@ -149,8 +157,40 @@ constructor(
     this.prazo = prazo
     this.status = status
     }
+//criando o método para mostrar os dados da Tarefa
+dadosTarefas(){
+    console.log('------Dados da Tarefa------')
+    console.log(`ID da Tarefa: ${this.id_tarefa}`)
+    console.log(`ID do Responsável: ${this.responsavel}`)
+    console.log(`Nome da Tarefa: ${this.nome_tarefa}`)
+    console.log(`Descrição: ${this.descricao}`)
+    console.log(`Prazo: ${this.prazo.toLocaleDateString('pt-BR')}`)
+    console.log(`Status: ${this.status}`)
+    console.log('------------')
+    }
 }
 
-//instânciando a classe 'Funcionario'
+//Instânciando a Classe 'Funcionario'
 var rafael = new Funcionario('Rafael', '123','Rafael@gmail.com', new Date('2005-12-31'), '36590836583', 'Engenheiro Banco de Dados', '(84) 95555-5555', '(84) 95655-5555', 'M')
 rafael.dadosFuncionario()
+
+console.log('')
+
+
+//Instânciando a Classe 'Equipe'
+var selva = new Equipe('555650525', ['Projeto Manhattan: 555640424', 'Projeto Nattahnam: 555640666'], ['Rafael: 36590836583','James Bond: 36590836524','Zé Vaqueiro: 36590836540'], 'Homer Simpson: 3659083000')
+selva.dadosEquipe()
+
+console.log('')
+
+
+//Instânciando a Classe 'Projeto'
+var manhattan = new Projeto('555640424', 'Equipe Selva: 555650525', 'Projeto Manhattan', 'Criando o código atômico', new Date('1942-6-13'), new Date('1945-6-20'), 'Em Andamento')
+manhattan.dadosProjeto()
+
+console.log('')
+
+
+//Instânciando a Classe 'Tarefa'
+var tarefa1 = new Tarefas('0000555','50 Tons de Tarefa', 'Não se preocupe, apenas trabalhe', 'Rafael: 36590836583', new Date('2024-03-20'), 'Concluído')
+tarefa1.dadosTarefas()
